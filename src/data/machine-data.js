@@ -31,3 +31,6 @@ export const machinesData = [
     ]
   }
 ];
+
+// machinesData is a washing machine simulation data set containing details of multiple washing machines.
+// Each washing machine data includes: machine ID, name, location, next available time, current state, and availability array for time period.

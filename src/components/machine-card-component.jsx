@@ -46,7 +46,7 @@ const MachineCard = ({ machine, onReserve, selectedSlot, onSlotSelect }) => {
         
         <button 
           onClick={() => onReserve(machine)}
-          className="w-full bg-blue-600 text-white py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors"
+          // className="w-full bg-blue-600 text-white py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors"
         >
           Reserve Now
         </button>
@@ -56,3 +56,7 @@ const MachineCard = ({ machine, onReserve, selectedSlot, onSlotSelect }) => {
 };
 
 export default MachineCard;
+
+// MachineCard is a card component for each washing machine that shows the machine name, status, location, next available time, and available time of the day.
+// User can select a time slot and click the "Reserve Now" button to make a reservation.
+// It also displays color markers based on machine status (available/in use) and renders each TimeSlot with a timeslot subcomponent.

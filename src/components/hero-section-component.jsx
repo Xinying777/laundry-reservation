@@ -12,7 +12,7 @@ const HeroSection = ({ onViewMachines }) => {
         <p className="text-xl md:text-2xl mb-8">Reserve your washer-dryer in advance for a stress-free laundry day</p>
         <button 
           onClick={onViewMachines}
-          className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+          // className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
         >
           View Machines
         </button>
@@ -22,3 +22,7 @@ const HeroSection = ({ onViewMachines }) => {
 };
 
 export default HeroSection;
+
+// HeroSection is the welcome banner area at the top of the page.
+// It shows a background image, title, subtitle, and a "View Machines" button.
+// The button will trigger the onViewMachines function passed by the parent component, which will direct the user to the available washing machines.

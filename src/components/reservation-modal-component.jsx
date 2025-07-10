@@ -87,13 +87,13 @@ const ReservationModal = ({ isOpen, onClose, selectedMachine, selectedTime, onSu
               name="studentId"
               value={formData.studentId}
               onChange={handleInputChange}
-              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              // className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             />
           </div>
           
           <button 
             onClick={handleSubmit}
-            className="w-full bg-blue-600 text-white py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors"
+            // className="w-full bg-blue-600 text-white py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors"
           >
             Confirm Reservation
           </button>
@@ -104,3 +104,7 @@ const ReservationModal = ({ isOpen, onClose, selectedMachine, selectedTime, onSu
 };
 
 export default ReservationModal;
+
+// ReservationModal is a pop-up reservation form component that pops up when the user taps the washing machine card.
+// It contains entries for machine name, appointment date, time period, and student ID.
+// Once submitted, the user's information is passed to the parent component for further processing (e.g. saving to the database or showing the reservation was successful).

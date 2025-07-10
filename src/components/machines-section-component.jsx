@@ -22,3 +22,7 @@ const MachinesSection = ({ machines, onReserve, selectedSlot, onSlotSelect }) =>
 };
 
 export default MachinesSection;
+
+// MachinesSection is the main area for the list of all washing machines.
+
+// Each card allows the user to select a time slot and click a button to make an appointment.
