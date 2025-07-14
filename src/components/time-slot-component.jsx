@@ -1,15 +1,23 @@
 import React from 'react';
 
 const TimeSlot = ({ time, isAvailable, isSelected, onClick }) => {
-  const baseClasses = "p-2 text-center rounded-md text-sm font-medium transition-colors";
-  const availableClasses = isAvailable 
-    // ? "bg-blue-50 text-blue-600 cursor-pointer hover:bg-blue-600 hover:text-white"
-    // : "bg-gray-100 text-gray-400 cursor-not-allowed";
-  const selectedClasses = isSelected ? "bg-blue-600 text-white" : "";
+  const getClassName = () => {
+    let className = 'time-slot ';
+    
+    if (isSelected) {
+      className += 'time-slot-selected';
+    } else if (isAvailable) {
+      className += 'time-slot-available';
+    } else {
+      className += 'time-slot-unavailable';
+    }
+    
+    return className;
+  };
 
   return (
     <div 
-      className={`${baseClasses} ${availableClasses} ${selectedClasses}`}
+      className={getClassName()}
       onClick={isAvailable ? onClick : undefined}
     >
       {time}
@@ -18,6 +26,3 @@ const TimeSlot = ({ time, isAvailable, isSelected, onClick }) => {
 };
 
 export default TimeSlot;
-
-// TimeSlot is a washer reservation slot selection component that displays a single clickable time block.
-// Display styles based on three states: available (blue), reserved (gray), user selected (dark blue).

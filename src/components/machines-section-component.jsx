@@ -3,10 +3,10 @@ import MachineCard from './machine-card-component.jsx';
 
 const MachinesSection = ({ machines, onReserve, selectedSlot, onSlotSelect }) => {
   return (
-    <div className="max-w-7xl mx-auto px-4 py-12" id="machines">
-      <h2 className="text-3xl font-medium text-center mb-12 text-gray-800">Our Machines</h2>
+    <div className="machines-section" id="machines">
+      <h2 className="machines-title">Our Machines</h2>
       
-      <div className="grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+      <div className="machines-grid">
         {machines.map((machine) => (
           <MachineCard
             key={machine.id}
@@ -22,7 +22,3 @@ const MachinesSection = ({ machines, onReserve, selectedSlot, onSlotSelect }) =>
 };
 
 export default MachinesSection;
-
-// MachinesSection is the main area for the list of all washing machines.
-
-// Each card allows the user to select a time slot and click a button to make an appointment.

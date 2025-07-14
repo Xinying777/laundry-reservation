@@ -1,37 +1,46 @@
 import React from 'react';
 import TimeSlot from './time-slot-component.jsx';
+// This component shows a card for each laundry machine with its details and available time slots
+
+// - machine: object containing machine details
+// - onReserve: function to call when reserve button is clicked
+// - selectedSlot: currently selected time slot
+// - onSlotSelect: function to handle slot selection
 
 const MachineCard = ({ machine, onReserve, selectedSlot, onSlotSelect }) => {
-  const statusColors = {
-    available: "bg-green-500",
-    "in-use": "bg-red-500"
+  const getStatusClass = (status) => {
+    return status === 'available' ? 'status-available' : 'status-in-use';
   };
 
   return (
-    <div className="bg-white rounded-xl shadow-lg overflow-hidden transition-transform hover:transform hover:-translate-y-1 hover:shadow-xl h-full">
-      <div className="bg-blue-600 text-white p-5 text-center relative">
-        <i className="fas fa-washing-machine text-4xl mb-3"></i>
-        <h3 className="text-xl font-medium">{machine.name}</h3>
-        <span className={`absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-medium ${statusColors[machine.status]}`}>
+    <div className="machine-card">
+      {/* Card header with machine name and status */}
+      <div className="machine-card-header">
+        <i className="fas fa-washing-machine machine-icon"></i>
+        <h3 className="machine-name">{machine.name}</h3>
+         {/* Status badge changes color based on availability */}
+        <span className={`machine-status ${getStatusClass(machine.status)}`}>
           {machine.status === 'available' ? 'Available' : 'In Use'}
         </span>
       </div>
       
-      <div className="p-5">
-        <div className="space-y-3 mb-5">
-          <p className="text-gray-600">
-            <i className="fas fa-map-marker-alt text-blue-600 w-5 mr-2"></i>
+      <div className="machine-card-body">
+        <div className="machine-info">
+          <p>
+            <i className="fas fa-map-marker-alt"></i>
             Location: {machine.location}
           </p>
-          <p className="text-gray-600">
-            <i className="fas fa-clock text-blue-600 w-5 mr-2"></i>
+          <p>
+            <i className="fas fa-clock"></i>
             Next available: {machine.nextAvailable}
           </p>
         </div>
         
-        <div className="mb-5">
-          <h5 className="text-gray-800 font-medium mb-3">Today's Availability</h5>
-          <div className="grid grid-cols-2 gap-2">
+        {/* Time slots availability section */}
+        <div className="availability-section">
+          <h5 className="availability-title">Today's Availability</h5>
+           {/* Grid of available time slots */}
+          <div className="time-slots-grid">
             {machine.timeSlots.map((slot, index) => (
               <TimeSlot
                 key={index}
@@ -44,9 +53,10 @@ const MachineCard = ({ machine, onReserve, selectedSlot, onSlotSelect }) => {
           </div>
         </div>
         
+         {/* Reserve button - appears on all cards */}
         <button 
           onClick={() => onReserve(machine)}
-          // className="w-full bg-blue-600 text-white py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors"
+          className="reserve-button"
         >
           Reserve Now
         </button>
@@ -56,7 +66,3 @@ const MachineCard = ({ machine, onReserve, selectedSlot, onSlotSelect }) => {
 };
 
 export default MachineCard;
-
-// MachineCard is a card component for each washing machine that shows the machine name, status, location, next available time, and available time of the day.
-// User can select a time slot and click the "Reserve Now" button to make a reservation.
-// It also displays color markers based on machine status (available/in use) and renders each TimeSlot with a timeslot subcomponent.
